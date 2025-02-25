@@ -17,7 +17,8 @@ jobs:
         uses: docker/setup-buildx-action@v2  # Enables better Docker builds
 
       - name: Log in to Docker Hub
-  	run: echo "${{ secrets.DOCKERTOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: |
+          echo "${{ secrets.DOCKERTOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Build Docker Image
         run: |
